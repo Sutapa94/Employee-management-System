@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
   empEdited(emp:Employee){
     this.employee[this.index]=emp;
     localStorage.setItem("Employee",JSON.stringify(this.employee));
+    this.enableEdit=false;
   }
   
 }

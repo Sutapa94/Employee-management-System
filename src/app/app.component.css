@@ -3,3 +3,8 @@ div{
     color: white;
     padding-left: 40%;
 }
+.fixed{
+    position:fixed;
+    z-index: 1;
+    width: 100%;
+}

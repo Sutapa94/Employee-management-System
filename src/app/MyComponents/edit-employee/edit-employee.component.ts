@@ -7,7 +7,7 @@ import { Employee } from 'src/app/Employee';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
-  @Input() editEmp :Employee
+  @Input() editEmp :Employee;
   @Output() cancelEdit:EventEmitter<boolean>=new EventEmitter();
   @Output() editedEmp : EventEmitter<Employee>=new EventEmitter();
 

@@ -1,8 +1,19 @@
 button{
-    margin:3px;
+    margin:30px;
 }
 input{
-    margin:3px;
+    margin:30px;
     text-align: left;
     float: right;
+    margin-right: -30px;
+}
+.fixed{
+    position: fixed;
+    z-index: 1;
+}
+.look{
+    padding-top: 40px;
+}
+.edit{
+    margin: auto;
 }
