@@ -1,0 +1,25 @@
+<div class="card mb-3 display-middle"  style="max-width: 50%;">
+    <div class="row g-0">
+      <div class="col-md-4 image-display">
+        <img src={{emp.image}} class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-4">
+        <h5><u>Personal Details</u></h5>
+        <div class="card-body">
+          <p class="card-title">Name - {{emp.name}}</p>
+          <p class="card-text">BirthDate - {{emp.birthdate}}</p>
+          <p class="card-text">Gender - {{emp.gender}}</p>
+          <button class="btn btn-success btn-sm" (click)="onEdit(emp)" data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5><u>Professional Details</u></h5>
+        <div class="card-body">
+          <p class="card-title">Company - {{emp.company}}</p>
+          <p class="card-text">Experience - {{emp.experience}} Years</p>
+          <p class="card-text">Education - {{emp.education}}</p>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(emp)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

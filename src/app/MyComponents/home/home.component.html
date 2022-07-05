@@ -1,0 +1,60 @@
+<div class="container">
+  <button type="button" class="btn btn-primary btn-sm" (click)="add()" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">
+    Add Employee
+  </button>
+  <input type="text" placeholder="Search by Emp-Name" [(ngModel)]="searchText" >
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Fill Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-employee 
+            *ngIf="toggle" 
+            (cancelEmp)="cancelEmployee()" 
+            (addEmp)="addEmployee($event)">
+        </app-add-employee>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="this.employee.length===0; else elseBlock">
+  No Employees to show Please Add Employee
+</div>
+
+<ng-template #elseBlock>
+  <div *ngFor="let emp of employee">
+    <div *ngIf="this.searchText === '' || emp.name.toLowerCase().includes(searchText)">
+      <app-employee-details 
+          [emp]="emp" 
+          (employeeDetails)="employeeDelete($event)" 
+          (employeeEdit)="employeeEdit($event)">
+      </app-employee-details>
+    </div>
+  </div>
+</ng-template>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-employee 
+            [editEmp]="editEmployee" 
+            *ngIf="enableEdit" 
+            (cancelEdit)="editCancel()"
+            (editedEmp)="empEdited($event)">
+        </app-edit-employee>
+      </div>
+    </div>
+  </div>
+</div>
