@@ -1,15 +1,18 @@
 button{
-    margin:30px;
+    margin-top: -5px;
 }
 input{
-    margin:30px;
+    margin:-3px;
     text-align: left;
     float: right;
     margin-right: -30px;
 }
 .fixed{
-    position: fixed;
+    position: sticky;
+    position: -webkit-sticky;
     z-index: 1;
+    top: 0;
+    padding: 5px;
 }
 .look{
     padding-top: 40px;

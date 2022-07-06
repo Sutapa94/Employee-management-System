@@ -29,7 +29,7 @@
 
 <ng-template #elseBlock >
   <div *ngFor="let emp of employee">
-    <div *ngIf="this.searchText === '' || emp.name.toLowerCase().includes(searchText)" class="look">
+    <div *ngIf="this.searchText === '' || emp.name.toLowerCase().includes(searchText)">
       <app-employee-details
           [emp]="emp" 
           (employeeDetails)="employeeDelete($event)" 
