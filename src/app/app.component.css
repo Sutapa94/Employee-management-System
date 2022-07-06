@@ -1,10 +1,11 @@
-div{
+div {
     background-color: black;
     color: white;
-    padding-left: 40%;
-}
-.fixed{
-    position:fixed;
     z-index: 1;
     width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    text-align: center;
 }
