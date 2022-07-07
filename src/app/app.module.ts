@@ -8,6 +8,8 @@ import { EmployeeDetailsComponent } from './MyComponents/employee-details/employ
 import { AddEmployeeComponent } from './MyComponents/add-employee/add-employee.component';
 import { FormsModule } from '@angular/forms';
 import { EditEmployeeComponent } from './MyComponents/edit-employee/edit-employee.component';
+import { SetBackgroundDirective } from './Custom-Directive/Attribute-Directive/setbackground.directive';
+import { CustomNgIfDirective } from './Custom-Directive/Structural-Directive/customngIf.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { EditEmployeeComponent } from './MyComponents/edit-employee/edit-employe
     EmployeeDetailsComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
+    SetBackgroundDirective,
+    CustomNgIfDirective,
   ],
   imports: [
     BrowserModule,

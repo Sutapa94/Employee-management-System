@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <app-add-employee 
-            *ngIf="toggle" 
+            *customNgIf="toggle" 
             (cancelEmp)="cancelEmployee()" 
             (addEmp)="addEmployee($event)">
         </app-add-employee>
