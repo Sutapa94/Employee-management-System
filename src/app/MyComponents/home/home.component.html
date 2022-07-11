@@ -3,6 +3,8 @@
     data-bs-target="#exampleModal">
     Add Employee
   </button>
+  <button class="btn btn-primary btn-sm about-button" (click)="onAboutClick()">About</button>
+  <button class="btn btn-primary btn-sm about-button" (click)="onHomeClick()">Home</button>
   <input type="text" placeholder="Search by Emp-Name" [(ngModel)]="searchText" >
 </div>
 
@@ -23,13 +25,13 @@
   </div>
 </div>
 
-<div *ngIf="this.employee.length===0; else elseBlock">
+<div *ngIf="this.employee.length===0 && !aboutPageVisible; else elseBlock">
   No Employees to show Please Add Employee
 </div>
 
 <ng-template #elseBlock >
   <div *ngFor="let emp of employee">
-    <div *ngIf="this.searchText === '' || emp.name.toLowerCase().includes(searchText)">
+    <div *ngIf="(this.searchText === '' || emp.name.toLowerCase().includes(searchText)) && !aboutPageVisible">
       <app-employee-details
           [emp]="emp" 
           (employeeDetails)="employeeDelete($event)" 
@@ -56,3 +58,5 @@
     </div>
   </div>
 </div>
+
+<app-about *customNgIf="aboutPageVisible"></app-about>

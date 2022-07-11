@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { EditEmployeeComponent } from './MyComponents/edit-employee/edit-employee.component';
 import { SetBackgroundDirective } from './Custom-Directive/Attribute-Directive/setbackground.directive';
 import { CustomNgIfDirective } from './Custom-Directive/Structural-Directive/customngIf.directive';
+import { AboutComponent } from './MyComponents/about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CustomNgIfDirective } from './Custom-Directive/Structural-Directive/cus
     EditEmployeeComponent,
     SetBackgroundDirective,
     CustomNgIfDirective,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

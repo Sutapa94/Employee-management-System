@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   editEmployee:Employee;
   index;
   searchText:string="";
+  aboutPageVisible:boolean=false;
 
   constructor() {
     const localItem = localStorage.getItem("Employee");
@@ -57,6 +58,12 @@ export class HomeComponent implements OnInit {
     this.employee[this.index]=emp;
     localStorage.setItem("Employee",JSON.stringify(this.employee));
     this.enableEdit=false;
+  }
+  onAboutClick(){
+    this.aboutPageVisible=true;
+  }
+  onHomeClick(){
+    this.aboutPageVisible=false;
   }
   
 }
