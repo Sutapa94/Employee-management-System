@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Employee';
+import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -15,23 +16,35 @@ export class HomeComponent implements OnInit {
   searchText:string="";
   aboutPageVisible:boolean=false;
 
-  constructor() {
-    const localItem = localStorage.getItem("Employee");
-    if(localItem===null){
-      this.employee=[];
-    }
-    else{
-      this.employee= JSON.parse(localItem);
-    }    
-   }
+  constructor( private serivce : EmployeeService) {}
 
   ngOnInit(): void {
+    //With Local Storage :
+    // const localItem = localStorage.getItem("Employee");
+    // if(localItem===null){
+    //   this.employee=[];
+    // }
+    // else{
+    //   this.employee= JSON.parse(localItem);
+    // }    
+
+    //With Http request:
+    this.serivce.fetchEmployeeService()
+    .subscribe(
+      posts => {
+        this.employee = posts;
+      }
+    );
   }
   employeeDelete(event:Employee){
     console.log(event);
     const index= this.employee.indexOf(event);
     this.employee.splice(index,1);
-    localStorage.setItem("Employee",JSON.stringify(this.employee));
+    //with local storage:
+    //localStorage.setItem("Employee",JSON.stringify(this.employee));
+
+    //with http requests:
+    this.serivce.editEmployeeService(this.employee).subscribe();
   }
 
   add(){
@@ -46,7 +59,11 @@ export class HomeComponent implements OnInit {
   addEmployee(emp:Employee){
     console.log(emp);
     this.employee.push(emp);
-    localStorage.setItem("Employee",JSON.stringify(this.employee));
+    //with Local Storage
+    //localStorage.setItem("Employee",JSON.stringify(this.employee));
+
+    //With Http request:
+    this.serivce.addEmployeeService(emp).subscribe();
   }
   employeeEdit(emp:Employee){
     console.log(emp);
@@ -56,7 +73,8 @@ export class HomeComponent implements OnInit {
   }
   empEdited(emp:Employee){
     this.employee[this.index]=emp;
-    localStorage.setItem("Employee",JSON.stringify(this.employee));
+    //localStorage.setItem("Employee",JSON.stringify(this.employee));
+    this.serivce.editEmployeeService(this.employee).subscribe();
     this.enableEdit=false;
   }
   onAboutClick(){
