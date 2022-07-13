@@ -12,6 +12,7 @@ import { EditEmployeeComponent } from './MyComponents/edit-employee/edit-employe
 import { SetBackgroundDirective } from './Custom-Directive/Attribute-Directive/setbackground.directive';
 import { CustomNgIfDirective } from './Custom-Directive/Structural-Directive/customngIf.directive';
 import { AboutComponent } from './MyComponents/about/about.component';
+import { FilterPipe } from './Pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AboutComponent } from './MyComponents/about/about.component';
     SetBackgroundDirective,
     CustomNgIfDirective,
     AboutComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
