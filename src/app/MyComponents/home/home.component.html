@@ -30,8 +30,13 @@
 </div>
 
 <ng-template #elseBlock >
+  <!--This below filter is Custom Pipe, This can add load to angular App as it became Impure Pipe-->
   <div *ngFor="let emp of employee | filter:searchText:'name'">
-    <div *ngIf="!aboutPageVisible">
+
+    <!--Instead of Custom Filter you can use this-->
+    <!-- <div *ngIf= "(this.searchText === '' || emp.name.toLowerCase().includes(searchText)) && !aboutPageVisible"> -->
+
+    <div *ngIf="!aboutPageVisible"> 
       <app-employee-details
           [emp]="emp" 
           (employeeDetails)="employeeDelete($event)" 
