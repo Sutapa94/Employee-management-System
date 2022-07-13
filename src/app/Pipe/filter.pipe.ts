@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, filterText: string, name:string): any {
     if(value.length===0 || filterText===''){
-      return value;
+      return value; 
     }
     else{
       const result = []

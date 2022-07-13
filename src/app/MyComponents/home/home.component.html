@@ -1,4 +1,4 @@
-<div class="container fixed">
+<div class="container fixed"> 
   <button type="button" class="btn btn-primary btn-sm" (click)="add()" data-bs-toggle="modal"
     data-bs-target="#exampleModal">
     Add Employee
@@ -36,7 +36,7 @@
     <!--Instead of Custom Filter you can use this-->
     <!-- <div *ngIf= "(this.searchText === '' || emp.name.toLowerCase().includes(searchText)) && !aboutPageVisible"> -->
 
-    <div *ngIf="!aboutPageVisible"> 
+    <div *ngIf="!aboutPageVisible">
       <app-employee-details
           [emp]="emp" 
           (employeeDetails)="employeeDelete($event)" 
